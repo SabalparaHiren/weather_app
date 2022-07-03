@@ -1,10 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/common/widgets/today_list.dart';
-import 'package:weather_app/screen/forecast/forecast_controller.dart';
+import 'package:weather_app/screen/forecast/bloc/forecast_bloc.dart';
+import 'package:weather_app/screen/forecast/bloc/forecast_event.dart';
+import 'package:weather_app/screen/forecast/bloc/forecast_state.dart';
 import 'package:weather_app/utils/strings.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class ForecastTopArea extends StatelessWidget {
   const ForecastTopArea({Key? key}) : super(key: key);
@@ -13,16 +16,16 @@ class ForecastTopArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: Get.height * 0.03),
+        SizedBox(height: deviceHeight * 0.03),
         Text(Strings.forecastReport, style: title),
-        SizedBox(height: Get.height * 0.04),
-        GetBuilder<ForecastController>(
-          id: 'today_weather',
-          builder: (controller) {
+        SizedBox(height: deviceHeight * 0.04),
+        BlocBuilder<ForecastBloc, ForecastState>(
+          builder: (context, state) {
             return TodayList(
-              weatherModel: controller.forecast,
-              selectedIndex: controller.selectedTimeSlot,
-              onTap: controller.onTimeSelect,
+              weatherModel: state.forecast!,
+              selectedIndex: state.selectedTimeSlot!,
+              onTap: (int index) =>
+                  context.read<ForecastBloc>().add(SelectForecastTime(index)),
               subTitle: DateFormat('MMMM dd, yyyy').format(DateTime.now()),
             );
           },

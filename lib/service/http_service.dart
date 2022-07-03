@@ -1,6 +1,6 @@
+import 'package:weather_app/common/toast_msg.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/common/toast_msg.dart';
 
 class HttpService {
   static Future<http.Response?> getApi({

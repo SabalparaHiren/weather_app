@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/utils/color_res.dart';
 import 'package:weather_app/utils/strings.dart';
+import 'package:flutter/material.dart';
 
 class TodayList extends StatelessWidget {
   final String? subTitle;
@@ -25,7 +24,7 @@ class TodayList extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05),
+          padding: EdgeInsets.symmetric(horizontal: deviceWidth * 0.05),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -39,9 +38,9 @@ class TodayList extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: Get.height * 0.035),
+        SizedBox(height: deviceHeight * 0.035),
         SizedBox(
-          height: Get.height * 0.11,
+          height: deviceHeight * 0.11,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount:
@@ -57,7 +56,7 @@ class TodayList extends StatelessWidget {
                 child: InkWell(
                   onTap: () => onTap(index),
                   child: Container(
-                    height: Get.height * 0.11,
+                    height: deviceHeight * 0.11,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 18, vertical: 12),
                     decoration: BoxDecoration(

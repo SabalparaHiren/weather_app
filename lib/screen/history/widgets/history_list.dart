@@ -1,34 +1,37 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/model/weather_model.dart';
-import 'package:weather_app/screen/history/history_controller.dart';
+import 'package:weather_app/screen/history/bloc/history_bloc.dart';
+import 'package:weather_app/screen/history/bloc/history_event.dart';
+import 'package:weather_app/screen/history/bloc/history_state.dart';
 import 'package:weather_app/utils/color_res.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 class HistoryList extends StatelessWidget {
   const HistoryList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final HistoryController controller = Get.find();
-    return Expanded(
-      child: GridView.builder(
-        padding: EdgeInsets.fromLTRB(Get.width * 0.05, 20, Get.width * 0.05, 0),
-        itemCount: controller.history.length,
-        itemBuilder: (context, index) {
-          final Current model = controller.history[index].current!;
-          return GetBuilder<HistoryController>(
-            id: 'history_list',
-            builder: (controller) {
+    return BlocBuilder<HistoryBloc, HistoryState>(
+      builder: (context, state) {
+        return Expanded(
+          child: GridView.builder(
+            padding: EdgeInsets.fromLTRB(
+                deviceWidth * 0.05, 20, deviceWidth * 0.05, 0),
+            itemCount: state.history!.length,
+            itemBuilder: (context, index) {
+              final Current model = state.history![index].current!;
               return InkWell(
-                onTap: () => controller.onTabChange(index),
+                onTap: () =>
+                    context.read<HistoryBloc>().add(OnHistoryTabChange(index)),
                 child: Container(
                   padding: EdgeInsets.symmetric(
-                      vertical: Get.width * 0.05, horizontal: Get.width * 0.05),
+                      vertical: deviceWidth * 0.05,
+                      horizontal: deviceWidth * 0.05),
                   decoration: BoxDecoration(
-                    color: controller.selectedIndex == index
+                    color: state.selectedIndex == index
                         ? ColorRes.themeColor
                         : ColorRes.darkBlue,
                     borderRadius: BorderRadius.circular(20),
@@ -51,7 +54,7 @@ class HistoryList extends StatelessWidget {
                                 "${kelToCel(model.temp!).round()}°c",
                                 style: customStyle.copyWith(fontSize: 22),
                               ),
-                              SizedBox(height: Get.width * 0.02),
+                              SizedBox(height: deviceWidth * 0.02),
                               Text(
                                 model.weather!.first.main!,
                                 style: subTitle,
@@ -64,7 +67,7 @@ class HistoryList extends StatelessWidget {
                             sigma: 7,
                             child: Image.asset(
                               getImageFromWeather(model.weather!.first.main!),
-                              width: Get.width * 0.13,
+                              width: deviceWidth * 0.13,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
@@ -85,14 +88,14 @@ class HistoryList extends StatelessWidget {
                 ),
               );
             },
-          );
-        },
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
-        ),
-      ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15,
+            ),
+          ),
+        );
+      },
     );
   }
 }
