@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/screen/history/history_controller.dart';
 import 'package:weather_app/utils/color_res.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class HistoryList extends StatelessWidget {
   const HistoryList({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/service/pref_service.dart';
 import 'package:weather_app/utils/asset_res.dart';
 import 'package:weather_app/utils/pref_keys.dart';
-import 'package:intl/intl.dart';
 
 Future<void> getCurrentLocation() async {
   LocationPermission permission = await Geolocator.checkPermission();

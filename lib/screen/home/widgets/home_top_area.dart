@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/service/pref_service.dart';
 import 'package:weather_app/utils/pref_keys.dart';
-import 'package:intl/intl.dart';
 
 class HomeTopArea extends StatelessWidget {
   const HomeTopArea({Key? key}) : super(key: key);
