@@ -1,10 +1,10 @@
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/screen/forecast/api/forecast_api.dart';
 
-class ForecastController extends GetxController {
+class ForecastProvider extends ChangeNotifier {
   WeatherModel forecast = WeatherModel();
-  RxBool loader = false.obs;
+  bool loader = false;
   int selectedTimeSlot = 0;
 
   Future<void> init() async {
@@ -12,13 +12,15 @@ class ForecastController extends GetxController {
   }
 
   Future<void> getForecastData() async {
-    loader.value = true;
+    loader = true;
+    notifyListeners();
     forecast = (await ForecastApi.getForecastData()) ?? WeatherModel();
-    loader.value = false;
+    loader = false;
+    notifyListeners();
   }
 
   void onTimeSelect(int index) {
     selectedTimeSlot = index;
-    update(['today_weather']);
+    notifyListeners();
   }
 }

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/utils/color_res.dart';
 
 class FullScreenLoader extends StatelessWidget {
@@ -13,8 +13,8 @@ class FullScreenLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height,
-      width: Get.width,
+      height: deviceHeight,
+      width: deviceWidth,
       decoration: enableBgColor == true
           ? const BoxDecoration(
               gradient: LinearGradient(

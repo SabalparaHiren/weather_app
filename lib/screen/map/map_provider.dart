@@ -1,11 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:get/get.dart';
 import 'package:weather_app/service/pref_service.dart';
 import 'package:weather_app/utils/pref_keys.dart';
 
-class MapController extends GetxController {
+class MapProvider extends ChangeNotifier {
   String mapUrl = "";
-  RxBool loader = false.obs;
+  bool loader = false;
 
   void init() {
     getMapUrl();
@@ -18,14 +18,17 @@ class MapController extends GetxController {
   }
 
   void onLoadStart(InAppWebViewController controller, Uri? uri) {
-    loader.value = true;
+    loader = true;
+    notifyListeners();
   }
 
   void onLoadStop(InAppWebViewController controller, Uri? uri) {
-    loader.value = false;
+    loader = false;
+    notifyListeners();
   }
 
   void onWebViewCreated(InAppWebViewController controller) {
-    loader.value = true;
+    loader = true;
+    notifyListeners();
   }
 }

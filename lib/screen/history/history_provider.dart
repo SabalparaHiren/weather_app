@@ -1,10 +1,10 @@
-import 'package:get/get.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/screen/history/api/history_api.dart';
 
-class HistoryController extends GetxController {
+class HistoryProvider extends ChangeNotifier {
   List<WeatherModel> history = [];
-  RxBool loader = false.obs;
+  bool loader = false;
   int selectedIndex = 0;
 
   Future<void> init() async {
@@ -12,13 +12,15 @@ class HistoryController extends GetxController {
   }
 
   Future<void> getLastWeekList() async {
-    loader.value = true;
+    loader = true;
+    notifyListeners();
     history = await HistoryApi.getPast5DayHistory();
-    loader.value = false;
+    loader = false;
+    notifyListeners();
   }
 
   void onTabChange(int index) {
     selectedIndex = index;
-    update(['history_list']);
+    notifyListeners();
   }
 }

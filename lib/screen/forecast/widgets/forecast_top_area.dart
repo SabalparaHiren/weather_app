@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/common/widgets/today_list.dart';
-import 'package:weather_app/screen/forecast/forecast_controller.dart';
+import 'package:weather_app/screen/forecast/forecast_provider.dart';
 import 'package:weather_app/utils/strings.dart';
 
 class ForecastTopArea extends StatelessWidget {
@@ -13,16 +14,15 @@ class ForecastTopArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: Get.height * 0.03),
+        SizedBox(height: deviceHeight * 0.03),
         Text(Strings.forecastReport, style: title),
-        SizedBox(height: Get.height * 0.04),
-        GetBuilder<ForecastController>(
-          id: 'today_weather',
-          builder: (controller) {
+        SizedBox(height: deviceHeight * 0.04),
+        Consumer<ForecastProvider>(
+          builder: (con, provider, widget) {
             return TodayList(
-              weatherModel: controller.forecast,
-              selectedIndex: controller.selectedTimeSlot,
-              onTap: controller.onTimeSelect,
+              weatherModel: provider.forecast,
+              selectedIndex: provider.selectedTimeSlot,
+              onTap: provider.onTimeSelect,
               subTitle: DateFormat('MMMM dd, yyyy').format(DateTime.now()),
             );
           },

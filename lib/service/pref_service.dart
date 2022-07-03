@@ -1,6 +1,6 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:weather_app/common/toast_msg.dart';
 import 'package:weather_app/utils/strings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefService {
   static late SharedPreferences _prefs;

@@ -1,22 +1,16 @@
-import 'package:get/get.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/screen/home/api/home_api.dart';
 
-class HomeController extends GetxController {
+class HomeProvider extends ChangeNotifier {
   int selectedTimeSlot = 0;
 
   WeatherModel weatherModel = WeatherModel();
-  RxBool loader = false.obs;
-
-  @override
-  void onInit() {
-    init();
-    super.onInit();
-  }
+  bool loader = false;
 
   Future<void> init() async {
-    loader.value = true;
+    loader = true;
     await getCurrentLocation();
     await getWeatherModel();
   }
@@ -25,17 +19,19 @@ class HomeController extends GetxController {
 
   void onTimeSelect(int index) {
     selectedTimeSlot = index;
-    update(['today_weather']);
+    notifyListeners();
   }
 
   Future<void> getWeatherModel() async {
-    loader.value = true;
+    loader = true;
+    notifyListeners();
     WeatherModel? model = await HomeApi.getAllWeatherData();
     if (model == null) {
       getWeatherModel();
     } else {
       weatherModel = model;
-      loader.value = false;
+      loader = false;
+      notifyListeners();
     }
   }
 }

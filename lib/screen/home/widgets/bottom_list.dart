@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/widgets/today_list.dart';
-import 'package:weather_app/screen/home/home_controller.dart';
+import 'package:weather_app/screen/home/home_provider.dart';
 
 class BottomList extends StatelessWidget {
   const BottomList({Key? key}) : super(key: key);
@@ -10,14 +11,13 @@ class BottomList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: Get.height * 0.04),
-        GetBuilder<HomeController>(
-          id: 'today_weather',
-          builder: (controller) {
+        SizedBox(height: deviceHeight * 0.04),
+        Consumer<HomeProvider>(
+          builder: (con, provider, widget) {
             return TodayList(
-              weatherModel: controller.weatherModel,
-              selectedIndex: controller.selectedTimeSlot,
-              onTap: controller.onTimeSelect,
+              weatherModel: provider.weatherModel,
+              selectedIndex: provider.selectedTimeSlot,
+              onTap: provider.onTimeSelect,
             );
           },
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:weather_app/screen/dashboard/dashboard_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/screen/dashboard/dashboard_provider.dart';
 import 'package:weather_app/utils/color_res.dart';
 
 class BottomBar extends StatelessWidget {
@@ -8,9 +8,8 @@ class BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DashboardController>(
-      id: 'bottom_bar',
-      builder: (controller) {
+    return Consumer<DashboardProvider>(
+      builder: (con, provider, widget) {
         return SafeArea(
           child: Row(
             children: [
@@ -26,30 +25,29 @@ class BottomBar extends StatelessWidget {
   }
 
   Widget tab(IconData icon1, IconData icon2, int index) {
-    return GetBuilder<DashboardController>(
-      id: 'bottom_bar',
-      builder: (controller) {
+    return Consumer<DashboardProvider>(
+      builder: (con, provider, widget) {
         return Expanded(
           child: InkWell(
             hoverColor: Colors.transparent,
             splashColor: Colors.transparent,
             focusColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onTap: () => controller.onBottomBarChange(index),
+            onTap: () => provider.onBottomBarChange(index),
             child: Container(
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: index == controller.currentTab
+                    color: index == provider.currentTab
                         ? ColorRes.themeColor.withOpacity(0.55)
                         : Colors.transparent,
                     blurRadius: 40,
                   ),
                 ],
               ),
-              child: Icon(index == controller.currentTab ? icon1 : icon2),
+              child: Icon(index == provider.currentTab ? icon1 : icon2),
             ),
           ),
         );
