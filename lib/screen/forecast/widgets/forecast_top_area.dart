@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/common/widgets/today_list.dart';
 import 'package:weather_app/screen/forecast/forecast_controller.dart';
 import 'package:weather_app/utils/strings.dart';
-import 'package:intl/intl.dart';
 
 class ForecastTopArea extends StatelessWidget {
   const ForecastTopArea({Key? key}) : super(key: key);
