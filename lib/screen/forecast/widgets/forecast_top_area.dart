@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/common/widgets/today_list.dart';
@@ -5,9 +8,6 @@ import 'package:weather_app/screen/forecast/bloc/forecast_bloc.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_event.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_state.dart';
 import 'package:weather_app/utils/strings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 class ForecastTopArea extends StatelessWidget {
   const ForecastTopArea({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/widgets/loaders.dart';
 import 'package:weather_app/screen/map/widget/map_bloc.dart';
 import 'package:weather_app/screen/map/widget/map_event.dart';
 import 'package:weather_app/screen/map/widget/map_state.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class MapScreen extends StatelessWidget {
   const MapScreen({Key? key}) : super(key: key);

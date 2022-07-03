@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/screen/dashboard/dahsboard.dart';
 import 'package:weather_app/screen/splash/bloc/splash_event.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashBloc extends Bloc<SplashEvent, dynamic> {
   SplashBloc() : super(0) {

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/screen/dashboard/bloc/dashboard_bloc.dart';
 import 'package:weather_app/screen/dashboard/bloc/dashboard_event.dart';
 import 'package:weather_app/screen/dashboard/bloc/dashboard_state.dart';
@@ -7,8 +9,6 @@ import 'package:weather_app/screen/history/history_screen.dart';
 import 'package:weather_app/screen/home/home_screen.dart';
 import 'package:weather_app/screen/map/map_screen.dart';
 import 'package:weather_app/utils/color_res.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);

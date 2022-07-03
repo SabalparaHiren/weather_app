@@ -1,12 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/screen/home/bloc/home_bloc.dart';
 import 'package:weather_app/screen/home/bloc/home_state.dart';
 import 'package:weather_app/utils/color_res.dart';
 import 'package:weather_app/utils/strings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class HomeCenterWeather extends StatelessWidget {
   const HomeCenterWeather({Key? key}) : super(key: key);

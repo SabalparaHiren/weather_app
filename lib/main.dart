@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/screen/dashboard/bloc/dashboard_bloc.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_bloc.dart';
@@ -8,8 +10,6 @@ import 'package:weather_app/screen/splash/bloc/splash_bloc.dart';
 import 'package:weather_app/screen/splash/splash_screen.dart';
 import 'package:weather_app/service/pref_service.dart';
 import 'package:weather_app/utils/color_res.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

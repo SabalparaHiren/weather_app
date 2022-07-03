@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/utils/strings.dart';
-import 'package:flutter/material.dart';
 
 class HistoryTopArea extends StatelessWidget {
   const HistoryTopArea({Key? key}) : super(key: key);

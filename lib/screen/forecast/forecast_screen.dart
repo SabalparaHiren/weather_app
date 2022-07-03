@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/widgets/loaders.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_bloc.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_state.dart';
 import 'package:weather_app/screen/forecast/widgets/forecast_list.dart';
 import 'package:weather_app/screen/forecast/widgets/forecast_top_area.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForecastScreen extends StatelessWidget {
   const ForecastScreen({Key? key}) : super(key: key);

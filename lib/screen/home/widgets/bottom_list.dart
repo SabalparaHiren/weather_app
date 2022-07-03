@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/widgets/today_list.dart';
 import 'package:weather_app/screen/home/bloc/home_bloc.dart';
 import 'package:weather_app/screen/home/bloc/home_event.dart';
 import 'package:weather_app/screen/home/bloc/home_state.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomList extends StatelessWidget {
   const BottomList({Key? key}) : super(key: key);

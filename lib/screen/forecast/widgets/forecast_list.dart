@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/common/helper.dart';
 import 'package:weather_app/common/text_styles.dart';
 import 'package:weather_app/model/weather_model.dart';
@@ -5,8 +7,6 @@ import 'package:weather_app/screen/forecast/bloc/forecast_bloc.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_state.dart';
 import 'package:weather_app/utils/color_res.dart';
 import 'package:weather_app/utils/strings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForecastList extends StatelessWidget {
   const ForecastList({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:weather_app/common/helper.dart';
-import 'package:weather_app/utils/color_res.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/common/helper.dart';
+import 'package:weather_app/utils/color_res.dart';
 
 class FullScreenLoader extends StatelessWidget {
   final bool? enableBgColor;

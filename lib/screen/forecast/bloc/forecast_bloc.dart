@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/screen/forecast/api/forecast_api.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_event.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForecastBloc extends Bloc<ForecastEvent, ForecastState> {
   ForecastBloc() : super(ForecastState()) {

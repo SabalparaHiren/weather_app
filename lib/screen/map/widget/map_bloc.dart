@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/screen/map/widget/map_event.dart';
 import 'package:weather_app/screen/map/widget/map_state.dart';
 import 'package:weather_app/service/pref_service.dart';
 import 'package:weather_app/utils/pref_keys.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MapBloc extends Bloc<MapEvent, MapState> {
   MapBloc() : super(MapState()) {

@@ -1,5 +1,5 @@
-import 'package:weather_app/utils/color_res.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/utils/color_res.dart';
 
 TextStyle large = const TextStyle(
   fontWeight: FontWeight.w600,

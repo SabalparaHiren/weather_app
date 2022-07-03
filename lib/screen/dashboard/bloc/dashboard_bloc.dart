@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/screen/dashboard/bloc/dashboard_event.dart';
 import 'package:weather_app/screen/dashboard/bloc/dashboard_state.dart';
 import 'package:weather_app/screen/forecast/bloc/forecast_bloc.dart';
@@ -10,7 +11,6 @@ import 'package:weather_app/screen/home/bloc/home_bloc.dart';
 import 'package:weather_app/screen/home/bloc/home_event.dart';
 import 'package:weather_app/screen/map/widget/map_bloc.dart';
 import 'package:weather_app/screen/map/widget/map_event.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   DashboardBloc() : super(DashboardState()) {
